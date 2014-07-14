@@ -5,7 +5,8 @@ Simple puppet class to manage users and groups from hieradata
 
 ## Examples
 
-```users:
+```
+users:
   crazyone:
     ensure    : present
     name      : crazyone
