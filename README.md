@@ -24,8 +24,8 @@ users:
     
 groups:
   badusers:
-    ensure: present
-    gid   : 5432
-    allowdupe : false
-    system    : false
+    ensure   : present
+    gid      : 5432
+    allowdupe: false
+    system   : false
 ```
