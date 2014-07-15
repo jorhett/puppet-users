@@ -18,7 +18,11 @@
 #    system    : false
 #
 class users::groups {
+  require stdlib
+
   $defaults  = { ensure => present }
-  $grouplist = hiera_hash('groups')
-  create_resources( group, $grouplist, $defaults )
+  $grouplist = hiera_hash('groups', false)
+  if is_hash( $grouplist ) {
+    create_resources( group, $grouplist, $defaults )
+  }
 }

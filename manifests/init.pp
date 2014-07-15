@@ -34,9 +34,12 @@
 class users(
   $managehomedir = true,
 ) {
+  require stdlib
   include users::groups
 
   $defaults      = { ensure => present, managehome => $managehomedir }
-  $userlist      = hiera_hash('users')
-  create_resources( user, $userlist, $defaults )
+  $userlist      = hiera_hash('users', false)
+  if is_hash( $userlist ) {
+    create_resources( user, $userlist, $defaults )
+  }
 }
